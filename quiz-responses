@@ -1,0 +1,78 @@
+# Polymorphism & Composition Homework - Quiz
+
+# Polymorphism
+
+1. What does the ___word___ 'polymorphism' mean?
+--> Polymorphism means an object can have multiple forms, meaning it is in more than one 'is-a' type of relationship.
+
+2. What does it mean when we apply polymorphism to OO design? Give a simple Java example.
+--> When applied to OO design, polymorphism means we can treat an instance of a class as if it is another class  / type at the same time.
+
+Example: Zoo has a collection of animals which have different feeding requirements
+
+public interface IFeed {
+  public String feed(String food);
+}
+
+public class lion implements IFeed {
+    public String feed(String food) {
+        return "Gnawing " + food;
+    }
+}
+
+public class meerkat implements IFeed {
+    public String feed(String food) {
+        return "Nibbling " + food;
+    }
+}
+
+Lions and Meerkats can now either be handled as separate classes / object types (lions and meerkats) which would need to be managed and tracked via different structures or as the same class (IFeed) which allows the same structure to be used to manage / track them.
+
+3. What can we use to implement polymorphism in Java?
+--> We can use abstract classes or interfaces.
+
+4. How many 'forms' can an object take when using polymorphism?
+--> An object can be it's base class, an inherited abstract class and as many interfaces as it chooses to implement, eg, if inheriting from an abstract class and implementing 3 interfaces, that would give 5 forms.
+
+5. Give an example of when you could use polymorphism.
+--> You could use polymorphism to make your code more DRY by enabling multiple classes to be treated the same (removing duplicated lines of code for each class), by inheriting the same abstract class or implementing the same interface(s).
+
+
+
+# Composition
+
+6. What do we mean by 'composition' in reference to object-oriented programming?
+--> This means that we pull in other objects / classes which our base class has a 'has-a' relationship with to build a complete picture of what we are trying to represent.
+
+7. When would you use composition? Provide a simple example in Java.
+--> You would use composition when you had an object which could use other objects with which it has a 'has-a' relationship with to be a complete representation.
+
+Example: A kitchen with white goods
+
+class Fridge {
+    private String name;
+    private double capacity;
+}
+
+class Oven {
+    private double capacity;
+    private int numberOfShelves:
+}
+
+class Cooker {
+    private int numberOfBurners;
+    private Oven oven;
+}
+
+class Kitchen {
+    private double width;
+    private double length;
+    private Fridge fridge;
+    private Cooker cooker;
+}
+
+8. What is/are the advantage(s) of using composition?
+--> It allows you to tailor very exactly the behaviours you want to include from other classes without the issues which can be encountered when using inheritance.
+
+9. When an object is destroyed, what happens to all the objects it is composed of?
+--> As the object being destroyed owns all the objects it is composed of, these are also destroyed along with the object.
